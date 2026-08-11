@@ -45,7 +45,7 @@ export default function LandingPage() {
           <p className="mt-5 max-w-md text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
             {PLATFORM_DESCRIPTION}
           </p>
-          <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
+          <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-8">
             <Link
               href="/signup"
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-coral px-7 py-3.5 text-base font-extrabold text-white shadow-lg shadow-coral/25 transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark"
@@ -55,7 +55,7 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/courses"
-              className="text-center text-base font-extrabold text-navy underline decoration-sunny decoration-4 underline-offset-8 transition hover:decoration-coral sm:text-start"
+              className="text-base font-extrabold text-navy underline decoration-sunny decoration-4 underline-offset-8 transition hover:decoration-coral"
             >
               شاهد الدورات
             </Link>

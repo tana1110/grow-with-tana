@@ -97,7 +97,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
           <div className="animate-fade-up delay-2 mt-8 flex flex-wrap items-center gap-4">
             <Link
               href={ctaHref}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-base font-extrabold text-navy shadow-lg transition duration-300 hover:-translate-y-0.5 hover:scale-105 sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-base font-extrabold text-navy shadow-lg transition duration-300 hover:-translate-y-0.5 hover:scale-105"
             >
               <PlayCircle className="h-5 w-5 text-coral" />
               {ctaLabel}
