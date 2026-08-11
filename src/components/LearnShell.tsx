@@ -48,7 +48,7 @@ export default function LearnShell({
       <div className="flex flex-1">
         {/* القائمة الجانبية — درج منزلق على الجوال، عمود ثابت على الشاشات الكبيرة */}
         <aside
-          className={`fixed inset-y-0 end-0 top-16 z-20 w-80 transform border-s border-slate-200 bg-white transition-transform duration-200 lg:static lg:translate-x-0 lg:border-s-0 lg:border-e ${
+          className={`fixed inset-y-0 end-0 top-16 z-20 w-80 max-w-[85vw] transform border-s border-slate-200 bg-white transition-transform duration-200 lg:static lg:translate-x-0 lg:border-s-0 lg:border-e ${
             sidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'
           }`}
         >

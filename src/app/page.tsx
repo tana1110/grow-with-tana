@@ -21,9 +21,9 @@ export default function LandingPage() {
       <Navbar />
 
       {/* الواجهة: نص يمين، مجموعة بطاقات مروَّحة يسار */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pt-14 pb-20 lg:grid-cols-2 lg:gap-6">
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-10 pb-14 sm:px-6 sm:pt-14 sm:pb-20 lg:grid-cols-2 lg:gap-6">
         <div className="animate-fade-up">
-          <h1 className="text-5xl leading-[1.15] font-extrabold tracking-tight text-navy sm:text-6xl">
+          <h1 className="text-4xl leading-[1.2] font-extrabold tracking-tight text-navy sm:text-5xl lg:text-6xl">
             هنا تكبر
             <span className="relative mx-3 inline-block text-leaf">
               المهارات
@@ -42,20 +42,20 @@ export default function LandingPage() {
               </svg>
             </span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
             {PLATFORM_DESCRIPTION}
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:items-center sm:gap-4">
             <Link
               href="/signup"
-              className="inline-flex items-center gap-2 rounded-2xl bg-coral px-7 py-3.5 text-base font-extrabold text-white shadow-lg shadow-coral/25 transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-coral px-7 py-3.5 text-base font-extrabold text-white shadow-lg shadow-coral/25 transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark"
             >
               ابدأ مجانًا
               <ArrowLeft className="h-4 w-4" />
             </Link>
             <Link
               href="/courses"
-              className="text-base font-extrabold text-navy underline decoration-sunny decoration-4 underline-offset-8 transition hover:decoration-coral"
+              className="text-center text-base font-extrabold text-navy underline decoration-sunny decoration-4 underline-offset-8 transition hover:decoration-coral sm:text-start"
             >
               شاهد الدورات
             </Link>
@@ -66,7 +66,7 @@ export default function LandingPage() {
         </div>
 
         {/* مروحة بطاقات من دورات حقيقية */}
-        <div className="relative mx-auto h-105 w-full max-w-md" aria-hidden="true">
+        <div className="relative mx-auto h-64 w-full max-w-xs sm:h-80 sm:max-w-sm lg:h-105 lg:max-w-md" aria-hidden="true">
           {courses.slice(0, 3).map((course, index) => {
             // البطاقة الأولى في المنتصف — تبدو جيدة سواء كانت دورة واحدة أو أكثر
             const positions = [
@@ -77,10 +77,10 @@ export default function LandingPage() {
             return (
               <div
                 key={course.id}
-                className={`absolute w-52 rounded-3xl bg-white p-3 shadow-xl shadow-navy/10 ${positions[index]}`}
+                className={`absolute w-44 rounded-3xl bg-white p-3 shadow-xl shadow-navy/10 sm:w-52 ${positions[index]}`}
               >
                 <div
-                  className={`relative flex h-28 items-center justify-center overflow-hidden rounded-2xl ${deckColors[course.color]}`}
+                  className={`relative flex h-24 items-center justify-center overflow-hidden rounded-2xl sm:h-28 ${deckColors[course.color]}`}
                 >
                   <span className="pointer-events-none absolute -top-4 -start-4 h-14 w-14 rounded-full bg-white/15" />
                   <span className="text-4xl drop-shadow">{course.emoji}</span>
@@ -103,13 +103,13 @@ export default function LandingPage() {
             )
           })}
           {/* الشعار يطلّ من خلف البطاقات */}
-          <LogoMark className="absolute bottom-0 start-1/2 h-16 w-16 -translate-x-1/2 rotate-6 drop-shadow-lg" />
+          <LogoMark className="absolute bottom-0 start-1/2 h-12 w-12 -translate-x-1/2 rotate-6 drop-shadow-lg sm:h-16 sm:w-16" />
         </div>
       </section>
 
       {/* كيف تعمل — شريط أفقي بسيط بدل بطاقات المميزات */}
       <section className="border-y-2 border-navy/5 bg-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 sm:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-5 px-5 py-8 sm:grid-cols-3 sm:gap-8 sm:px-6 sm:py-10">
           {[
             { icon: PlayCircle, color: 'text-periwinkle', text: 'اختر دورة وشاهد الدرس الأول' },
             { icon: CheckCircle2, color: 'text-leaf', text: 'أنهِ الفيديو ليُحفظ تقدّمك تلقائيًا' },
@@ -125,7 +125,7 @@ export default function LandingPage() {
       </section>
 
       {/* الدورات */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-16">
         <div className="mb-8 flex items-end justify-between">
           <h2 className="text-2xl font-extrabold text-navy sm:text-3xl">الدورات</h2>
           <Link

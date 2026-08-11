@@ -10,7 +10,7 @@ export default async function Navbar() {
 
   return (
     <header className="sticky top-0 z-30 border-b-2 border-navy/5 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:px-6">
         <div className="flex items-center gap-6">
           <Logo />
           <nav className="hidden items-center gap-1 sm:flex">
@@ -50,15 +50,16 @@ export default async function Navbar() {
             <>
               <Link
                 href="/login"
-                className="rounded-xl px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100"
+                className="rounded-xl px-3 py-2 text-sm font-bold whitespace-nowrap text-slate-700 transition hover:bg-slate-100 sm:px-4"
               >
                 تسجيل الدخول
               </Link>
               <Link
                 href="/signup"
-                className="rounded-xl bg-coral px-4 py-2 text-sm font-extrabold text-white shadow-md shadow-coral/25 transition duration-300 hover:scale-105 hover:bg-coral-dark"
+                className="rounded-xl bg-coral px-3 py-2 text-sm font-extrabold whitespace-nowrap text-white shadow-md shadow-coral/25 transition duration-300 hover:scale-105 hover:bg-coral-dark sm:px-4"
               >
-                أنشئ حسابك مجانًا
+                <span className="sm:hidden">سجّل مجانًا</span>
+                <span className="hidden sm:inline">أنشئ حسابك مجانًا</span>
               </Link>
             </>
           )}

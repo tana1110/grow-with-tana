@@ -52,7 +52,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
           <Logo size="lg" />
         </div>
 
-        <div className="animate-pop rounded-3xl border-2 border-navy/5 bg-white p-8 shadow-lg shadow-slate-200/50">
+        <div className="animate-pop rounded-3xl border-2 border-navy/5 bg-white p-6 shadow-lg shadow-slate-200/50 sm:p-8">
           <h1 className="mb-1 text-2xl font-extrabold text-navy">
             {isSignup ? 'أنشئ حسابك' : 'أهلًا بعودتك'}
           </h1>

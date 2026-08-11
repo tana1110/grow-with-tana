@@ -46,3 +46,6 @@ next-env.d.ts
 # قاعدة بيانات SQLite المحلية (بيانات المستخدمين — لا تُرفع)
 prisma/dev.db
 *.db
+
+.vercel
+.env*

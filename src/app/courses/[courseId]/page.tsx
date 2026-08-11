@@ -64,7 +64,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
         <span className="animate-float-slow pointer-events-none absolute bottom-0 start-1/4 h-24 w-24 rounded-full bg-black/10" />
         <span className="animate-float-delay pointer-events-none absolute top-10 start-10 h-6 w-6 rounded-full bg-white/30" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-12">
+        <div className="relative mx-auto max-w-6xl px-5 py-9 sm:px-6 sm:py-12">
           <div className="mb-3 flex flex-wrap items-center gap-3 text-sm font-semibold">
             <Link href="/courses" className="text-white/70 hover:text-white">
               الدورات
@@ -77,7 +77,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
               {course.emoji}
             </span>
             <div>
-              <h1 className="max-w-3xl text-3xl leading-tight font-extrabold sm:text-4xl">
+              <h1 className="max-w-3xl text-2xl leading-snug font-extrabold sm:text-3xl lg:text-4xl">
                 {course.title}
               </h1>
               <p className="mt-4 max-w-2xl leading-relaxed text-white/85">{course.description}</p>
@@ -97,7 +97,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
           <div className="animate-fade-up delay-2 mt-8 flex flex-wrap items-center gap-4">
             <Link
               href={ctaHref}
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-base font-extrabold text-navy shadow-lg transition duration-300 hover:-translate-y-0.5 hover:scale-105"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-base font-extrabold text-navy shadow-lg transition duration-300 hover:-translate-y-0.5 hover:scale-105 sm:w-auto"
             >
               <PlayCircle className="h-5 w-5 text-coral" />
               {ctaLabel}
