@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ملفات الفيديو الأصلية قبل التقطيع
+/video-source/
+
+# قاعدة بيانات SQLite المحلية (بيانات المستخدمين — لا تُرفع)
+prisma/dev.db
+*.db

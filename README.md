@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grow with Tana 🌱 — هنا تكبر المهارات
 
-## Getting Started
+منصّة دورات فيديو عربية (بأسلوب Coursera) بتصميم مرح وملوّن، مبنية بـ
+**Next.js (App Router)** و **Tailwind CSS** و **Prisma + SQLite** وأيقونات **Lucide React**.
 
-First, run the development server:
+## المميزات
+
+- 🎬 دورات متعددة، كل دورة بدروس فيديو محلية من `public/videos/`
+- 🔐 إنشاء حساب وتسجيل دخول (bcrypt + جلسة JWT)
+- 📈 تقدّم كل مستخدم محفوظ دائمًا في SQLite عبر Prisma — لكل دورة على حدة
+- 🔒 فتح الدروس بالتتابع: الدرس N يُفتح بعد إكمال N-1 (حدث `onEnded` يحفظ التقدّم ويفتح التالي فورًا)
+- 🧭 قائمة جانبية بحالة كل درس: ✅ مكتمل، ▶ قيد التقدّم، 🔒 مقفل
+- 📚 تبويب «المصادر والأدوات» لكل درس
+- 🎨 ثيم مرح للأطفال: خلفية كريمية، بطاقات ملوّنة (مرجاني، بنفسجي، أرجواني، أخضر)، وشعار مخصص
+- ✨ موشن جرافيك CSS: أشكال طافية، ظهور متدرّج، اهتزاز الشعار، شريط تقدّم متلألئ، واحتفال عند إكمال الدرس (مع احترام `prefers-reduced-motion`)
+- 📱 تصميم متجاوب بالكامل مع اتجاه RTL
+
+## البدء السريع
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install          # 1. تثبيت الحزم
+npm run db:setup     # 2. إنشاء قاعدة البيانات (أول مرة فقط)
+npm run dev          # 3. تشغيل الخادم → http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## إضافة الفيديوهات
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ضع ملفات MP4 في `public/videos/<courseId>/` — الأسماء المطلوبة موضّحة في
+[`public/videos/README.md`](public/videos/README.md) مع أمر ffmpeg لتوليد مقاطع تجريبية.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## تعديل الدورات والمحتوى
 
-## Learn More
+كل المحتوى في ملف واحد: **`src/data/coursesData.ts`**
 
-To learn more about Next.js, take a look at the following resources:
+| الحقل | الوصف |
+| --- | --- |
+| `id` | معرّف الدورة في الروابط وسجلّ التقدّم |
+| `title` / `description` | العنوان والوصف |
+| `category` / `level` / `duration` | التصنيف والمستوى والمدة |
+| `color` | لون البطاقة: `coral` \| `periwinkle` \| `grape` \| `leaf` \| `navy` |
+| `emoji` | أيقونة البطاقة |
+| `lessons[]` | الدروس: `id`, `title`, `description`, `videoPath`, `resources[]` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+الدروس تُفتح حسب ترتيبها في المصفوفة — أضف أو أعد الترتيب فقط.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## متغيرات البيئة (`.env`)
 
-## Deploy on Vercel
+| المتغير | الغرض |
+| --- | --- |
+| `DATABASE_URL` | ملف SQLite (افتراضيًا `file:./prisma/dev.db`) |
+| `AUTH_SECRET` | سرّ توقيع الجلسات — **غيّره في الإنتاج** |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ملاحظات تقنية
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js 16**: حماية المسارات في `src/proxy.ts` (الاسم الجديد للـ Middleware).
+- **Prisma 7**: يستخدم محوّل `better-sqlite3` و `prisma.config.ts`؛ العميل المولَّد في `src/generated/prisma/`.
+- واجهة التقدّم `POST /api/progress { courseId, lessonId }` تتحقق من فتح الدرس على الخادم — لا يمكن التحايل بالقفز للأمام.
+- الشعار SVG أصلي في `src/components/Logo.tsx` + أيقونة الموقع في `src/app/icon.svg`.
+
+## أوامر مفيدة
+
+| الأمر | الوظيفة |
+| --- | --- |
+| `npm run dev` | تشغيل خادم التطوير |
+| `npm run build` | بناء نسخة الإنتاج |
+| `npm run db:setup` | إنشاء قاعدة البيانات أول مرة |
+| `npm run db:migrate` | تطبيق تغييرات المخطط |
+| `npm run db:studio` | تصفّح قاعدة البيانات في Prisma Studio |

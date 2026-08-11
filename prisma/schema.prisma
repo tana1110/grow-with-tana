@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String           @id @default(cuid())
+  email     String           @unique
+  name      String
+  password  String
+  createdAt DateTime         @default(now())
+  progress  LessonProgress[]
+}
+
+model LessonProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  courseId    String
+  lessonId    String
+  completedAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId, lessonId])
+  @@index([userId, courseId])
+}
