@@ -58,7 +58,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
           </h1>
           <p className="mb-6 text-sm text-slate-500">
             {isSignup
-              ? 'سجّل مجانًا لتبدأ التعلّم ويُحفظ تقدّمك تلقائيًا.'
+              ? 'أنشئ حسابك ليبدأ التعلّم ويُحفظ تقدّمك تلقائيًا.'
               : 'سجّل الدخول لتكمل من حيث توقفت.'}
           </p>
 

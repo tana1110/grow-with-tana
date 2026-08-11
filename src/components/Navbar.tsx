@@ -58,8 +58,7 @@ export default async function Navbar() {
                 href="/signup"
                 className="rounded-xl bg-coral px-3 py-2 text-sm font-extrabold whitespace-nowrap text-white shadow-md shadow-coral/25 transition duration-300 hover:scale-105 hover:bg-coral-dark sm:px-4"
               >
-                <span className="sm:hidden">سجّل مجانًا</span>
-                <span className="hidden sm:inline">أنشئ حسابك مجانًا</span>
+                أنشئ حسابك
               </Link>
             </>
           )}

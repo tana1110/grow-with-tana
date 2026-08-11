@@ -47,7 +47,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
     ? `/learn/${course.id}/${continueLessonId}`
     : `/signup?from=/courses/${course.id}`
   const ctaLabel = !session
-    ? 'سجّل وابدأ الدورة مجانًا'
+    ? 'سجّل وابدأ الدورة'
     : completedIds.size === 0
       ? 'ابدأ الدورة'
       : percent === 100

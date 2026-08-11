@@ -50,7 +50,7 @@ export default function LandingPage() {
               href="/signup"
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-coral px-7 py-3.5 text-base font-extrabold text-white shadow-lg shadow-coral/25 transition duration-300 hover:-translate-y-0.5 hover:bg-coral-dark"
             >
-              ابدأ مجانًا
+              ابدأ الآن
               <ArrowLeft className="h-4 w-4" />
             </Link>
             <Link
@@ -60,9 +60,6 @@ export default function LandingPage() {
               شاهد الدورات
             </Link>
           </div>
-          <p className="mt-6 text-sm font-semibold text-slate-400">
-            مجاني بالكامل · لا حاجة لبطاقة دفع
-          </p>
         </div>
 
         {/* مروحة بطاقات من دورات حقيقية */}
