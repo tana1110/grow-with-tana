@@ -387,6 +387,7 @@ export type LessonProgressCreateOrConnectWithoutUserInput = {
 
 export type LessonProgressCreateManyUserInputEnvelope = {
   data: Prisma.LessonProgressCreateManyUserInput | Prisma.LessonProgressCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type LessonProgressUpsertWithWhereUniqueWithoutUserInput = {
@@ -1166,6 +1167,7 @@ export type LessonProgressCreateManyArgs<ExtArgs extends runtime.Types.Extension
    * The data used to create many LessonProgresses.
    */
   data: Prisma.LessonProgressCreateManyInput | Prisma.LessonProgressCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1184,6 +1186,7 @@ export type LessonProgressCreateManyAndReturnArgs<ExtArgs extends runtime.Types.
    * The data used to create many LessonProgresses.
    */
   data: Prisma.LessonProgressCreateManyInput | Prisma.LessonProgressCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

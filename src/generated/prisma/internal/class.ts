@@ -19,8 +19,8 @@ const config: runtime.GetPrismaClientConfig = {
   "previewFeatures": [],
   "clientVersion": "7.9.1",
   "engineVersion": "e922089b7d7502aff4249d5da3420f6fa55fc6ad",
-  "activeProvider": "sqlite",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel User {\n  id        String           @id @default(cuid())\n  email     String           @unique\n  name      String\n  password  String\n  createdAt DateTime         @default(now())\n  progress  LessonProgress[]\n}\n\nmodel LessonProgress {\n  id          String   @id @default(cuid())\n  userId      String\n  courseId    String\n  lessonId    String\n  completedAt DateTime @default(now())\n  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([userId, courseId, lessonId])\n  @@index([userId, courseId])\n}\n",
+  "activeProvider": "postgresql",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id        String           @id @default(cuid())\n  email     String           @unique\n  name      String\n  password  String\n  createdAt DateTime         @default(now())\n  progress  LessonProgress[]\n}\n\nmodel LessonProgress {\n  id          String   @id @default(cuid())\n  userId      String\n  courseId    String\n  lessonId    String\n  completedAt DateTime @default(now())\n  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@unique([userId, courseId, lessonId])\n  @@index([userId, courseId])\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -45,10 +45,10 @@ async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Modul
 }
 
 config.compilerWasm = {
-  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.sqlite.mjs"),
+  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"),
 
   getQueryCompilerWasmModule: async () => {
-    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.sqlite.wasm-base64.mjs")
+    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs")
     return await decodeBase64AsWasm(wasm)
   },
 
